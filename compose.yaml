@@ -1,0 +1,45 @@
+services:
+  user:
+    build:
+      context: .
+      dockerfile: users/Dockerfile.users
+    ports:
+      - "9000:5000"
+    networks:
+      - kandpalh
+  products:
+    build:
+      context: .
+      dockerfile: products/Dockerfile.products
+    ports:
+      - "9001:5000"
+    networks:
+      - kandpalh
+  search:
+    build:
+      context: .
+      dockerfile: search/Dockerfile.search
+    ports:
+      - "9002:5000"
+    networks:
+      - kandpalh
+  orders:
+    build:
+      context: .
+      dockerfile: order/Dockerfile.order
+    ports:
+      - "9003:5000"
+    networks:
+      - kandpalh
+  logs:
+    build:
+      context: .
+      dockerfile: logs/Dockerfile.logs
+    ports:
+      - "9004:5000"
+    networks:
+      - kandpalh
+
+networks:
+  kandpalh:
+    driver: bridge
